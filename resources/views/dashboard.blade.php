@@ -19,7 +19,7 @@
                 <div class="row">
 
                     <!-- Sales Card -->
-                    <div class="col-xxl-4 col-xl-4">
+                    <div class="col-xxl-6 col-xl-6">
 
                         <div class="card info-card customers-card">
 
@@ -58,7 +58,7 @@
                     </div><!-- End Sales Card -->
 
                     <!-- Revenue Card -->
-                    <div class="col-xxl-4 col-xl-4">
+                    <div class="col-xxl-6 col-xl-6">
 
                         <div class="card info-card customers-card">
 
@@ -99,7 +99,7 @@
                     <!-- Customers Card -->
                     <div class="col-xxl-4 col-xl-4">
 
-                        <div class="card info-card customers-card">
+                        {{-- <div class="card info-card customers-card">
 
                             <div class="filter">
                                 <a class="icon" href="#" data-bs-toggle="dropdown"><i
@@ -133,7 +133,7 @@
                             </div>
                         </div>
 
-                    </div><!-- End Customers Card -->
+                    </div><!-- End Customers Card --> --}}
 
                     <!-- Reports -->
 
