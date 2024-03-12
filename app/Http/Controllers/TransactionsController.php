@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class TransactionsController extends Controller
 {
-        /**
+    /**
      * Display a listing of the resource.
      */
     public function index()
@@ -31,23 +31,18 @@ class TransactionsController extends Controller
     {
 
         $request->validate([
-
-            'devise'=>'required',
-            'change'=>'required',
-            'taux'=>'required',
-            'lieu'=>'required',
-            
-            'date'=>'required',
-            'destination'=>'required',
-            'expediteur'=>'required',
-            'contact_expediteur'=>'required',
-            'destinataire'=>'required',
-            'contact_destinataire'=>'required',
-            'montant_envoye_depart'=>'required',
-            'montant_envoye_cfa'=>'required',
-            'frais_envoie'=>'required',
-            'montant_recupere'=>'required',
-
+            'devise' => 'required',
+            'change' => 'required',
+            'taux' => 'required',
+            'lieu' => 'required',
+            'date' => 'required',
+            'destination' => 'required',
+            'expediteur' => 'required',
+            'contact_expediteur' => 'required',
+            'destinataire' => 'required',
+            'contact_destinataire' => 'required',
+            'montant_envoye_depart' => 'required',
+            'frais_envoie' => 'required',
         ]);
 
         $transactions = new Transactions();
@@ -55,7 +50,6 @@ class TransactionsController extends Controller
         $transactions->change = $request->change;
         $transactions->taux = $request->taux;
         $transactions->lieu = $request->lieu;
-        $transactions->frais_envoie = $request->frais_envoie;
         $transactions->date = $request->date;
         $transactions->destination = $request->destination;
         $transactions->expediteur = $request->expediteur;
@@ -63,19 +57,27 @@ class TransactionsController extends Controller
         $transactions->destinataire = $request->destinataire;
         $transactions->contact_destinataire = $request->contact_destinataire;
         $transactions->montant_envoye_depart = $request->montant_envoye_depart;
-        $transactions->montant_envoye_cfa = $request->montant_envoye_cfa;
-        $transactions->montant_recupere = $request->montant_recupere;
-        
+
+        // Calcul du montant envoyé en CFA
+        $montantEnvoyeCFA = $request->montant_envoye_depart * $request->change;
+        $transactions->montant_envoye_cfa = $montantEnvoyeCFA;
+
+        // Calcul du montant récupéré
+        $montantRecupere = $montantEnvoyeCFA - $request->frais_envoie;
+        $transactions->montant_recupere = $montantRecupere;
+
+        $transactions->frais_envoie = $request->frais_envoie;
 
         $transactions->save();
 
-        return redirect()->route('transactions.index')->with('status', 'Une nouvelle transaction a ajoutée avec succes.');
+        return redirect()->route('transactions.index')->with('status', 'Une nouvelle transaction a été ajoutée avec succès.');
 
     }
 
-    /**
-     * Display the specified resource.
-     */
+    // Les autres méthodes restent inchangées...
+
+    
+     
     public function show($id)
     {
         return view('Transactions.details',[
@@ -132,5 +134,8 @@ class TransactionsController extends Controller
         $transactions = Transactions::find($id);
         $transactions->delete();
         return redirect()->route('transactions.index')->with('status', 'Transaction supprimée avec succes.');
-    }
 }
+}
+
+
+

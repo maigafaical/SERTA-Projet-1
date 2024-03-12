@@ -23,8 +23,8 @@ return new class extends Migration
             $table->integer('contact_expediteur');
             $table->string('destinataire');
             $table->integer('contact_destinataire');
-            $table->float('montant_envoye_depart');
-            $table->float('montant_envoye_cfa');
+            $table->decimal('montant_envoye_depart', 10, 2); // Défini comme DECIMAL(10, 2)
+            $table->decimal('montant_envoye_cfa', 10, 2); // Défini comme DECIMAL(10, 2)
             $table->float('frais_envoie');
             $table->float('montant_recupere');
             $table->timestamps();
@@ -37,5 +37,5 @@ return new class extends Migration
     public function down(): void
     {
         Schema::dropIfExists('transactions');
-    }
+}
 };
