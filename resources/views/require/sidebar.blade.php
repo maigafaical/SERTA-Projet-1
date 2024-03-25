@@ -26,28 +26,30 @@
           </li>
 
         </ul>
-      </li><!-- End Components Nav -->
+      </li>
+      <!-- End Components Nav -->
 
-      {{-- <li class="nav-item">
+       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#charts-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-bar-chart"></i><span>Gestion Patients</span><i class="bi bi-chevron-down ms-auto"></i>
+          <i class="bi bi-bar-chart"></i><span>Transfert USA</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="charts-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="{{route('patients.index')}}">
-              <i class="bi bi-circle"></i><span>Liste Patients</span>
+            <a href="{{route('transfert.index')}}">
+              <i class="bi bi-circle"></i><span>Liste Transfert</span>
             </a>
           </li>
           <li>
-            <a href="{{route('patients.create')}}">
-              <i class="bi bi-circle"></i><span>Ajouter Patients</span>
+            <a href="{{route('transfert.create')}}">
+              <i class="bi bi-circle"></i><span>Ajouter Transfert</span>
             </a>
           </li>
 
         </ul>
-    </li><!-- End Charts Nav -->
+    </li>
+    <!-- End Charts Nav -->
 
-      <li class="nav-item">
+      {{-- <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#charts-nave" data-bs-toggle="collapse" href="#">
           <i class="bi bi-bar-chart"></i><span>Gestion Spécialités</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
@@ -84,7 +86,8 @@
           </li>
 
         </ul>
-      </li><!-- End Components Nav_1 --> --}}
+      </li>
+      <!-- End Components Nav_1 -->  --}}
    
     </ul>
 

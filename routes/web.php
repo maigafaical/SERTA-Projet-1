@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\AuthentificationController;
 use App\Http\Controllers\TransactionsController;
+use App\Http\Controllers\TransfertController;
 use App\Http\Controllers\WelcomeController;
 
 
@@ -41,6 +42,8 @@ Route::resource('transactions', TransactionsController::class);
 Route::get('supprimer-transactions/{id}', [TransactionsController::class, 'destroy']);
 
 
+Route::resource('transfert', TransfertController::class);
+Route::get('supprimer-transfertController/{id}', [TransfertController::class, 'destroy']);
 
 
 
